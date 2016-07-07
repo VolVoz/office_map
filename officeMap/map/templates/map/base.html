@@ -1,0 +1,44 @@
+{% load twitter_bootstrap %}
+<html>
+<head>
+  <title>Office Map</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'main' %}">Office Map</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <div class="content container">
+    <div class="row">
+      <div class="col-md-8">
+        {% if messages %}
+          <ul class="messages">
+            {% for msg in messages %}
+              <li>
+                <div class="alert alert-{{msg.level_tag}}" role="alert">
+         	        {{msg.message}}
+        	       </div>
+               </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

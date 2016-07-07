@@ -1,0 +1,37 @@
+{% extends 'map/base.html' %}
+
+   {% block content %}
+   <div class="container">
+     <h2>Office Room: {{ obj.name }}</h2>
+     <p>Avalible places in this room: {{ obj.employees_count }}</p>
+     <div class="btn-group-horizontal">
+     </div>
+     <table class="table">
+       <thead>
+         <tr>
+           <th>Name</th>
+           <th>Email</th>
+           <th>Customize</th>
+         </tr>
+       </thead>
+       <tbody>
+           {% for member in obj.members.all %}
+           <tr>
+             <td>{{ member.name }}</td>
+             <td>{{ member.email }}</td>
+             <td>
+             <div class="btn-group-horizontal">
+                 <a href="{% url 'update_employee' pk=member.pk %}" class="btn btn-warning" role="button">Edit employee info</a>
+                 <a href="{% url 'info_employee' pk=member.pk %}" class="btn btn-info" role="button">View employee info</a>
+                 <a href="{% url 'delete_employee' pk=member.pk %}" class="btn btn-danger" role="button">Delete employee</a>
+             </div>
+             </td>
+           </tr>
+           {% endfor %}
+       </tbody>
+     </table>
+   </div>
+   {% endblock %}
+   
+   
+   

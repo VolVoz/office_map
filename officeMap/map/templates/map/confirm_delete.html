@@ -1,0 +1,10 @@
+{% extends 'map/base.html' %}
+
+   {% block content %}
+    <h1>Delete object</h1>
+    <form action="" method="post">{% csrf_token %}
+        
+        <input type="submit" value="Confirm" />
+        <button type="submit" class="save btn btn-danger">Delete</button>
+    </form>
+   {% endblock %}

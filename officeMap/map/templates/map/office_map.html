@@ -1,0 +1,48 @@
+{% extends 'map/base.html' %}
+
+{% block content %}
+
+<div class="btn-group btn-group-justified ">
+  <a href="{% url 'new_room'  %}" type="submit" class="save btn btn-primary btn-lg" role="button">Create a room</a>
+  <a href="{% url 'new_employee'  %}" type="submit" class="save btn btn-primary btn-lg" role="button">Hire a new employee</a>
+  <a href="{% url 'new_relationship' %}" type="submit" class="save btn btn-primary btn-lg" role="button">Move employee into room</a>
+</div>
+{% for room in office %}
+<div class="container">
+  <h2>Office Room: {{ room.name }}</h2>
+  <p>Can accommodate {{ room.employees_count }} workers</p>
+  <p>in this room are {{ room.members.get_queryset|length }} people</p>
+  <div class="btn-group-horizontal">
+    <a href="{% url 'update_room' pk=room.pk %}" type="submit" class="save btn btn-warning" role="button">Edit room</a>
+    <a href="{% url 'info_room' pk=room.pk %}" type="submit" class="save btn btn-info" role="button">View room</a>
+    <a href="{% url 'delete_room' pk=room.pk %}" type="submit" class="save btn btn-danger" role="button">Delete room</a>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Customize</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for member in room.members.all %}
+        <tr>
+          <td>{{ member.name }}</td>
+          <td>{{ member.email }}</td>
+          <td>
+          <div class="btn-group-horizontal">
+            <a href="{% url 'update_employee' pk=member.pk %}" class="btn btn-warning" role="button">Edit employee info</a>
+            <a href="{% url 'info_employee' pk=member.pk %}" class="btn btn-info" role="button">View employee info</a>
+            <a href="{% url 'remove_employee' pk=member.pk %}" class="btn btn-primary" role="button">Remove employee from this room</a>
+            <a href="{% url 'delete_employee' pk=member.pk %}" class="btn btn-danger" role="button">Delete employee</a>
+          </div>
+          </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+
+{% endblock content %}
