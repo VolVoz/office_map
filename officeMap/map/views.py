@@ -1,13 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.template import RequestContext
-from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib import messages
 from .models import Room, Employee, Office
 from .forms import EmployeeForm, RoomForm, OfficeForm
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
 from django.core.urlresolvers import reverse
 
 

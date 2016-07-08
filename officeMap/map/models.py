@@ -2,8 +2,6 @@ from __future__ import unicode_literals
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
-from django.contrib import messages
-import datetime
 
 
 def validate_even(value):
@@ -20,7 +18,7 @@ class BaseModel(models.Model):
     def __unicode__(self):
         return self.name
 
-    class Meta:
+    class Meta(object):
         abstract = True
 
 
