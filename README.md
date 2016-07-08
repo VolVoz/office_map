@@ -1,5 +1,5 @@
 # office_map
-
+[![Build Status](https://travis-ci.org/VolVoz/office_map.svg?branch=master)](https://travis-ci.org/VolVoz/office_map)
 ## Building instructions
 Clone repo
 ```
