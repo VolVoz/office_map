@@ -24,3 +24,4 @@ Done.Then just run server
 ```
 python manage.py runserver
 ```
+Demo - http://officemap.pythonanywhere.com/
