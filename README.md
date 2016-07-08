@@ -4,18 +4,15 @@
 Clone repo
 ```
 git clone https://github.com/VolVoz/office_map.git
-
 ```
 Make virtualenv
 ```
 virtualenv env
 source env/bin/activate
-
 ```
 Install requirements
 ```
 pip install -r requirements.txt
-
 ```
 Make migrations
 ```
