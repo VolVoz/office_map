@@ -99,7 +99,6 @@ class EmployeeUpdate(BaseUpdateView):
 
     def form_valid(self, form):
         instance = form.save(commit=False)
-        import pdb; pdb.set_trace()
         instance.save()
         return redirect(self.get_success_url())
 
